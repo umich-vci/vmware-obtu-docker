@@ -10,7 +10,8 @@ RUN --mount=type=bind,source=lcm-tools-prod.tar.gz,target=/tmp/lcm-tools-prod.ta
    sed -i 's/\(lcm.depot.adapter.remote.repoDir=\)\/evo\/vmw/\1\/COMP\/SDDC_MANAGER_VCF/' /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties && \
    sed -i 's/\(lcm.depot.adapter.remote.lcmManifestDir=\)\/evo\/vmw\/lcm\/manifest/\1\/COMP\/SDDC_MANAGER_VCF\/lcm\/manifest/' /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties && \
    sed -i 's/\(lcm.depot.adapter.remote.bundletransferconfig.repoDir:\)\/evo\/vmw\/obtu/\1\/COMP\/SDDC_MANAGER_VCF\/obtu/' /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties && \
-   cp /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties.tmpl
+   cp /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties /opt/vmware/vcf/lcm/lcm-tools/conf/application-prod.properties.tmpl && \
+   echo hunter2 > /depotUserPasswordFile.txt
 
 COPY entrypoint.sh /entrypoint.sh
 
